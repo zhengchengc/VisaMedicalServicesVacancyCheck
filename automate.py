@@ -13,7 +13,9 @@ newTime = currentTime
 
 n = 1000
 while n > 1:
-    automateDriver = webdriver.Firefox()
+    op = webdriver.FirefoxOptions()
+    op.add_argument('headless')
+    automateDriver = webdriver.Firefox(options=op)
     automateDriver.get("https://bmvs.onlineappointmentscheduling.net.au/oasis/")  # put here the address of your page
     newIndividualBookingButton = automateDriver.find_element(By.ID, 'ContentPlaceHolder1_btnInd')
     # print(newIndividualBookingButton.get_attribute("class"))
@@ -54,6 +56,6 @@ while n > 1:
     else:
         print("There is a earlier time, please secure the spot soon")
 
-    automateDriver.implicitly_wait(30)
+    automateDriver.implicitly_wait(60)
     automateDriver.close()
     n -= 1
