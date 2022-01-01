@@ -1,0 +1,9 @@
+# Jetbrains folder
+.idea/
+.idea
+.idea/vcs.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/VisaMedicalServicesVacancyCheck.iml
+.idea/inspectionProfiles/profiles_settings.xml
+*.xml
