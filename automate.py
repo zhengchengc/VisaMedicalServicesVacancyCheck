@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
+from time import sleep
 
+from playsound import playsound
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -14,7 +16,7 @@ newTime = currentTime
 n = 1000
 while n > 1:
     op = webdriver.FirefoxOptions()
-    op.add_argument('headless')
+    op.add_argument('--headless')
     automateDriver = webdriver.Firefox(options=op)
     automateDriver.get("https://bmvs.onlineappointmentscheduling.net.au/oasis/")  # put here the address of your page
     newIndividualBookingButton = automateDriver.find_element(By.ID, 'ContentPlaceHolder1_btnInd')
@@ -45,7 +47,7 @@ while n > 1:
     newTimeRaw = automateDriver.find_element(By.ID, 'ContentPlaceHolder1_SelectTime1_txtAppDate').get_attribute("value")
     if newTimeRaw:
         newTime = datetime.strptime(newTimeRaw, '%d/%m/%Y')
-        print(newTime)
+        # print(newTime)
     else:
         newTime = currentTime + timedelta(days=1)
 
@@ -54,8 +56,10 @@ while n > 1:
     if newTime >= currentTime:
         print("😭")
     else:
+        playsound('bigbell2.wav')
         print("There is a earlier time, please secure the spot soon")
 
+    sleep(20)
     automateDriver.implicitly_wait(60)
     automateDriver.close()
     n -= 1
