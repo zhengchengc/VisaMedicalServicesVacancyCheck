@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 
-currentTime = datetime.strptime("18/2/2022", '%d/%m/%Y')
+currentTime = datetime.strptime("10/2/2022", '%d/%m/%Y')
 print("The current schedule date is " + currentTime.strftime("%d/%m/%Y"))
 newTime = currentTime
 
