@@ -9,11 +9,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 
-currentTime = datetime.strptime("10/2/2022", '%d/%m/%Y')
+currentTime = datetime.strptime("14/2/2022", '%d/%m/%Y')
 print("The current schedule date is " + currentTime.strftime("%d/%m/%Y"))
 newTime = currentTime
 
-n = 1000
+n = 5000
 while n > 1:
     op = webdriver.FirefoxOptions()
     op.add_argument('--headless')
@@ -59,7 +59,7 @@ while n > 1:
         playsound('bigbell2.wav')
         print("There is a earlier time, please secure the spot soon")
 
-    sleep(20)
+    sleep(5)
     automateDriver.implicitly_wait(60)
     automateDriver.close()
     n -= 1
